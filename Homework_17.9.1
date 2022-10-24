@@ -1,0 +1,29 @@
+try:
+    sequence_of_numbers = list(map(float, input().split()))          # преобразование введённой последовательности в список
+    num = float(input())
+except:
+    print('Введенные данные должны быть числами!')
+
+
+def bubble_sort(array):                                              # функция ортировки списка по возрастанию элементов в нем (пузырьком)
+    for i in range(len(array)):
+        for j in range(len(array) - i - 1):
+            if array[j] > array[j + 1]:
+                array[j], array[j + 1] = array[j + 1], array[j]
+    return array
+
+
+def element_position_number_func(array,
+                                 num):                               # функция поиска номера позиции элемента, который меньше введенного пользователем числа, а следующий за ним больше или равен этому числу.
+    for i, j in enumerate(array):
+        if num > j and num <= array[i + 1]:
+            return i
+
+
+sequence_of_numbers = bubble_sort(sequence_of_numbers)               # Сортировка списка по возрастанию элементов в нем
+print(sequence_of_numbers)
+
+element_position_number = element_position_number_func(sequence_of_numbers,
+                                                       num)          # номер позиции элемента, который меньше введенного пользователем числа, а следующий за ним больше или равен этому числу.
+
+print(element_position_number)
